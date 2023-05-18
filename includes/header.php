@@ -1,3 +1,6 @@
+<?php 
+$loggedin_user = check_login();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +28,34 @@
                        
     <form action="search.php" method="get" class="searchform">
         <input type="search" name="phrase" placeholder="Search">
-        <input type="submit" value="search">
+        <input type="submit" style="background-color: #00bfff;"value="search">
     </form>
 
-	<a href="register.php" class="button">
+<?php if( $loggedin_user ){
+ ?>
+ 	<a href="login.php?action=logout"  style="background-color: #00bfff;" class="button">
+		Log Out
+	</a>
+		<a href="profile.php"class="button">
+		<?php echo $loggedin_user['username']; ?>
+	</a>
+
+<?php }else{
+ ?>
+	<a href="register.php" style="background-color: #00bfff;"class="button">
 		Sign Up
 	</a>
+	<a href="login.php"  class="button">
+		Login
+	</a>
+
+
+<?php }
+ ?>
+
+
+
+
 </div>  
 				
 			</nav>

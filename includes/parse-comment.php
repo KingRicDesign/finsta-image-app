@@ -22,7 +22,7 @@ if( isset($_POST['did_comment'])  ){
                         ');
                         #the :user works the same as ?. a named placeholder variable
                         $result->execute( array(
-                            'user'=> 3,
+                            'user'=> $loggedin_user['user_id'],
                             'body'=> $body,
                             'post'=> $post_id,
 

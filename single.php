@@ -19,8 +19,9 @@ if(isset($_GET['post_id'])){
     }
 }
 #parse before the header
-require('includes/parse-comment.php');
 require( 'includes/header.php' );
+require('includes/parse-comment.php');
+
 ?>
 
 <style>
@@ -82,7 +83,7 @@ $allow_comments = $row['allow_comments'];
 }//close while
 require('includes/comments.php');
 
-if( $allow_comments == 1){
+if( $allow_comments == 1 AND $loggedin_user){
     require('includes/commentform.php');
 }
 }//close if
