@@ -36,6 +36,9 @@ $loggedin_user = check_login();
  	<a href="login.php?action=logout"  style="background-color: #00bfff;" class="button">
 		Log Out
 	</a>
+	<a href="new-post.php" class="button">
+		&plus; New Post
+	</a>
 		<a href="profile.php"class="button">
 		<?php echo $loggedin_user['username']; ?>
 	</a>
