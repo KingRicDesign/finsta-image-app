@@ -27,7 +27,7 @@ require( 'includes/header.php' );
 ?>
 <main class="content">
 
-	<div class="posts-container flex one two-600 three-900">
+	<div class="posts-container flex three four-600 five-900">
 		<?php 
 		//get all the MATCHING published posts from the DB
 		//1. write it (prepare the statement)
@@ -88,7 +88,7 @@ require( 'includes/header.php' );
 			<div class="post-image-header">
 
 				<a href="single.php?post_id=<?php echo $row['post_id']?>">
-					<img src="<?php echo $row['image']; ?>" alt='<?php echo $row['title']; ?>' class='post-image'>
+				<?php show_post_image( $row['image'], 'small', $row['title']); ?>
 				</a>
 			</div>
 

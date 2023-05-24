@@ -110,6 +110,11 @@ if( isset($_POST['did_upload'] )){
                 $feedback = ' Upload was a success'; 
                 $feedback_class = 'success';
                 #todo: redirect to step 2, the page were u upload the title and image name
+				#lastInsertId is a predetermined function that is built in with our pdo
+				$post_id = $DB->lastInsertId();
+				header("Location:edit-post.php?post_id=$post_id");
+
+
             }else{
                 #db error
                 $feedback = ' Your image failed to upload, Please try again';
@@ -127,7 +132,7 @@ if( isset($_POST['did_upload'] )){
 	}//end if valid
 	else{
 		$feedback = 'There was a problem uploading your image, fix the following:';
-        $feedback_class='errors';
+        $feedback_class='error';
 	}
 
 }//end upload parser

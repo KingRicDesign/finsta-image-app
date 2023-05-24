@@ -157,4 +157,48 @@ function debug_statement($sth){
     }
 }
 
+function category_dropdown(){
+    global $DB;
+    $result = $DB->prepare('SELECT * FROM categories ORDER BY name ASC');
+    $result->execute();
+    if($result->rowCount()){
+        echo '<select name="category_id">';
+        while($row = $result->fetch()){
+            extract($row);
+            echo "<option value='$category_id'>$name</option>";
+        }
+        echo '</select>';
+    }
+}
+
+
+#checkbox Helper
+function checked( $a, $b ){
+    if( $a == $b ){
+        echo 'checked';
+    }
+}
+
+#selected helper
+function selected( $a, $b ){
+    if( $a == $b ){
+        echo 'selected';
+    }
+}
+/**
+ * Display the image of any post
+ * @param  string $unique The unique string identifier of the image
+ * @param  string $size   'small' 'medium' or 'large'
+ * @param  string $alt    img alt text
+ * @return string         HTML img tag
+ */
+function show_post_image( $unique, $size = 'medium', $alt = 'post image'  ){
+    $url = "uploads/$unique" . '_' . "$size.jpg";
+       //if the "unique" is not an absolute path, format it. 
+       //this makes our old placeholder images still work. Not really necessary but nice for this class. 
+    if( strpos( $unique, 'http' ) === 0 ){
+       $url = $unique;
+   }
+   echo "<img src='$url' alt='$alt' class='post-image is-$size'>";
+   }
 //no close php

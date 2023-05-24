@@ -29,7 +29,7 @@ require( 'includes/header.php' );
 			<div class="post-image-header">
 
 				<a href="single.php?post_id=<?php echo $row['post_id']?>">
-					<img src="<?php echo $row['image']; ?>" alt='<?php echo $row['title']; ?>' class='post-image'>
+					<?php show_post_image( $row['image'], 'medium', $row['title']); ?>
 				</a>
 			</div>
 			<footer>
