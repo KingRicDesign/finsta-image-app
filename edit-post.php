@@ -11,7 +11,7 @@ require('includes/parse-edit.php');
 <main class="content">
 	<div class="flex one two-700 reverse">
 		<section class="preview-image">		
-			<img src="uploads/<?php echo $image;?>_medium.jpg" alt="">	
+		<?php show_post_image( $row['image'], 'large', $row['title']); ?>	
 		</section>
 		<section class="edit-form">
 			<h2>Edit Post</h2>

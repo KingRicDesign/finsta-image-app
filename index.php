@@ -26,9 +26,11 @@ require( 'includes/header.php' );
 ?>
 	<article class="post">
 		<div class="card">
+			
 			<div class="post-image-header">
 
 				<a href="single.php?post_id=<?php echo $row['post_id']?>">
+				<?php edit_post_button($row['post_id'], $row['user_id']); ?>
 					<?php show_post_image( $row['image'], 'medium', $row['title']); ?>
 				</a>
 			</div>

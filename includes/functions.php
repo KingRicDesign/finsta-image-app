@@ -201,4 +201,18 @@ function show_post_image( $unique, $size = 'medium', $alt = 'post image'  ){
    }
    echo "<img src='$url' alt='$alt' class='post-image is-$size'>";
    }
+
+#edit post button
+function edit_post_button( $post_id = 0, $post_author = 0){
+    global $loggedin_user;
+    #if the user is logged in and this is their post show the button
+    if($loggedin_user AND $loggedin_user['user_id'] == $post_author){
+        echo "<a class='edit-post-button' style='background: #fff; border-radius: 5px; padding: .2rem;'href='edit-post.php?post_id=$post_id'> EDIT</a>";
+    }
+
+}
+
+
+
+
 //no close php
