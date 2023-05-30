@@ -36,8 +36,12 @@ require( 'includes/header.php' );
 			</div>
 			<footer>
 				<div class="post-header">
-					<div class="user">
+					<div class="user flex two">
 					<?php user_info( $row['user_id'], $row['username'], $row['profile_pic']); ?>
+					<div class="likes fifth">
+						<?php like_interface($row['post_id']) ?>
+					</div>
+
 					</div>
 				</div> <!-- post header -->
 
